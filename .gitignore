@@ -2,6 +2,9 @@ node_modules/
 dist/
 .astro/
 .tmp/
+.impeccable/questions/*.log
+.impeccable/questions/*.hand.json
+.impeccable/questions/*.state.json
 .env
 .env.*
 !.env.example
