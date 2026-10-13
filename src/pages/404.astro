@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+const en = Astro.url.pathname.startsWith('/en/');
+---
+<SiteLayout lang={en ? 'en' : 'de'} title={en ? 'Page not found' : 'Seite nicht gefunden'} description={en ? 'This page is unavailable. Return to Schlossberghotel Greiz.' : 'Diese Seite ist nicht verfügbar. Finden Sie zurück zum Schlossberghotel Greiz.'}>
+  <section class="not-found">
+    <p class="eyebrow">404 · GREIZ</p>
+    <h1>{en ? 'The trail ends here.' : 'Hier geht es nicht weiter.'}</h1>
+    <p>{en ? 'This address does not lead to a page. Start at the hotel or choose another part of Greiz.' : 'Diese Adresse führt zu keiner Seite. Starten Sie beim Hotel oder entdecken Sie einen anderen Teil von Greiz.'}</p>
+    <div class="not-found-links"><a class="button button-light" href={en ? '/en/' : '/de/'}>{en ? 'Go to the homepage' : 'Zur Startseite'} <span aria-hidden="true">↗</span></a><a class="text-link light-link" href={en ? '/en/rooms/' : '/de/zimmer/'}>{en ? 'Browse the rooms' : 'Zimmer ansehen'} <span aria-hidden="true">↗</span></a></div>
+  </section>
+</SiteLayout>

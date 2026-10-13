@@ -1,0 +1,58 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { subpages } from '../../../content/subpages.js';
+
+export function getStaticPaths() {
+  return subpages.flatMap((entry) => ['de', 'en'].map((lang) => ({
+    params: { lang, slug: entry.parent[lang === 'de' ? 0 : 1], subslug: entry.slugs[lang === 'de' ? 0 : 1] },
+    props: { entry, lang },
+  })).concat(entry.key === 'event-hall' ? [{ params: { lang: 'de', slug: 'tagungevent', subslug: 'saal-am-schlossberg' }, props: { entry, lang: 'de' } }] : []).concat(entry.parent[0] === 'greiz' ? [{ params: { lang: 'de', slug: 'umgebung', subslug: entry.slugs[0] }, props: { entry, lang: 'de' } }] : []));
+}
+
+const { entry, lang } = Astro.props;
+const de = lang === 'de';
+const page = entry[lang];
+const parentUrl = `/${lang}/${entry.parent[de ? 0 : 1]}/`;
+const pairedUrl = `/${de ? 'en' : 'de'}/${entry.parent[de ? 1 : 0]}/${entry.slugs[de ? 1 : 0]}/`;
+const canonicalPath = `/${lang}/${entry.parent[de ? 0 : 1]}/${entry.slugs[de ? 0 : 1]}/`;
+const title = `${page.title} · Schlossberghotel Greiz`;
+const fallbackImage = '/images/greiz-town-panorama.jpg';
+const categoryPages = entry.parent[0] === 'zimmer'
+  ? subpages.filter((item) => item.parent[0] === 'zimmer')
+  : entry.parent[0] === 'greiz'
+    ? subpages.filter((item) => item.parent[0] === 'greiz')
+    : entry.parent[0] === 'gaestemappe'
+      ? subpages.filter((item) => item.parent[0] === 'gaestemappe')
+      : [];
+---
+<SiteLayout lang={lang} current={entry.key} pairedUrl={pairedUrl} canonicalPath={canonicalPath} title={page.title} description={`${page.lead} ${page.intro}`} heroImage={entry.image ?? fallbackImage}>
+  <section class="page-hero subpage-hero">
+    <div class="page-hero-copy">
+      <nav class="breadcrumb" aria-label={de ? 'Brotkrumennavigation' : 'Breadcrumb'}>
+        <a href={de ? '/de/' : '/en/'}>{de ? 'Start' : 'Home'}</a><span aria-hidden="true">/</span>
+        <a href={parentUrl}>{page.kicker}</a><span aria-hidden="true">/</span><span aria-current="page">{page.title}</span>
+      </nav>
+      <h1>{page.title}</h1>
+      <p class="page-lede">{page.lead}</p>
+      <a class="button button-light" href={page.href} target={page.href.startsWith('http') ? '_blank' : undefined} rel={page.href.startsWith('http') ? 'noreferrer' : undefined}>{page.cta}<span aria-hidden="true">↗</span></a>
+      <div class="page-hero-meta"><span>SCHLOSSBERGHOTEL GREIZ</span><span>MARIENSTR. 1–5 · 07973 GREIZ</span></div>
+    </div>
+    <div class="page-hero-art subpage-hero-art">
+      {entry.image ? <img src={entry.image} alt={de ? `${page.title} · Originalaufnahme des Hotels oder der Region` : `${page.title} · original hotel or local photograph`} fetchpriority="high" /> : <div class="room-size-panel"><span>{de ? 'ROLLSTUHLGERECHT' : 'WHEELCHAIR ACCESSIBLE'}</span><strong>45 m²</strong><small>{de ? 'Stufenlose Dusche · Aufzug' : 'Step-free shower · lift access'}</small></div>}
+      <span>{entry.image ? (de ? 'Originalfoto · Schlossberghotel Greiz' : 'Original photograph · Schlossberghotel Greiz') : (de ? 'Ausstattung direkt mit dem Hotel abstimmen' : 'Discuss your needs with the hotel')}</span>
+    </div>
+  </section>
+
+  <section class="page-intro section-pad subpage-intro"><div><h2>{de ? 'Auf einen Blick' : 'At a glance'}</h2></div><p class="intro-body">{page.intro}</p></section>
+
+  <section class="subpage-facts section-pad" aria-label={de ? 'Informationen' : 'Information'}>
+    {page.facts.map(([label, value]) => <article><h2>{label}</h2><p>{value}</p></article>)}
+  </section>
+
+  {categoryPages.length > 1 && <nav class="subpage-related section-pad" aria-label={de ? 'Weitere Seiten' : 'Related pages'}>
+    <p class="eyebrow">{de ? 'Weiter entdecken' : 'Keep exploring'}</p>
+    <div>{categoryPages.filter((item) => item.key !== entry.key).map((item) => <a href={`/${lang}/${item.parent[de ? 0 : 1]}/${item.slugs[de ? 0 : 1]}/`}>{item[lang].title}<span aria-hidden="true">↗</span></a>)}</div>
+  </nav>}
+
+  <section class="page-cta"><div><h2>{entry.key === 'event-hall' ? (de ? 'Erzählen Sie uns von Ihrem Anlass.' : 'Tell us about your event.') : entry.key === 'guest-info' || entry.key === 'dining' ? (de ? 'Wir helfen gern weiter.' : 'We are happy to help.') : (de ? 'Finden Sie Ihren Platz in Greiz.' : 'Find your place in Greiz.')}</h2></div><a class="button button-light" href={page.href} target={page.href.startsWith('http') ? '_blank' : undefined} rel={page.href.startsWith('http') ? 'noreferrer' : undefined}>{page.cta}<span aria-hidden="true">↗</span></a></section>
+</SiteLayout>

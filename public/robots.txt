@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kostinatyn32.github.io/schlossberghotel-greiz/sitemap.xml

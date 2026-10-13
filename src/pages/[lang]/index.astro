@@ -1,0 +1,57 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+export function getStaticPaths() { return [{ params: { lang: 'de' } }, { params: { lang: 'en' } }]; }
+const lang = Astro.params.lang === 'en' ? 'en' : 'de';
+const de = lang === 'de';
+const heroGallery = [
+  { image: '/images/greiz-town-panorama.jpg', labelDe: 'Greiz aus der Vogelperspektive', labelEn: 'Greiz from above', altDe: 'Künstlerisches Panorama von Greiz mit der Weißen Elster und dem Oberen Schloss, nicht maßstabsgetreu', altEn: 'Illustrated panorama of Greiz with the White Elster and Upper Castle, not to scale', captionDe: 'GREIZ · ILLUSTRIERTES PANORAMA · KEINE KARTE', captionEn: 'GREIZ · ILLUSTRATED PANORAMA · NOT A MAP' },
+  { image: '/images/greiz-editorial-map-artwork.webp', labelDe: 'Greiz als Kartenillustration', labelEn: 'Greiz as a map illustration', altDe: 'Gestalterische, KI-generierte Greiz-Kartenillustration; Beschriftungen sind nicht verifiziert und nicht zur Orientierung gedacht', altEn: 'Decorative AI-generated map illustration of Greiz; labels are unverified and not intended for navigation', captionDe: 'GREIZ · KI-KARTENILLUSTRATION · BESCHRIFTUNGEN NICHT VERIFIZIERT', captionEn: 'GREIZ · AI MAP ILLUSTRATION · LABELS NOT VERIFIED' }
+];
+const content = de ? {
+  title: 'Greiz. Ganz nah.',
+  intro: 'Mitten in der Residenzstadt, am Fuße des Oberen Schlosses: Das Schlossberghotel ist ein ruhiger Ausgangspunkt für Stadt, Natur und gemeinsame Anlässe.',
+  action: 'Zimmer entdecken', secondary: 'Veranstaltung planen', kicker: 'Schlossberghotel · Marienstr. 1–5',
+  stat: '31 Zimmer', stat2: '5 Suiten', stat3: '1 barrierefreies Zimmer',
+  locate: 'Die Stadt liegt Ihnen zu Füßen', locateText: 'Altstadtgassen, Schlosspark und die Weiße Elster sind ganz nah. Das Vogtland beginnt gleich hinter den Hügeln.', explore: 'Greiz entdecken',
+  stayTitle: 'Ein Zimmer für Ihren eigenen Rhythmus', stayText: 'Von klar und zeitgemäß bis großzügig und besonders: Finden Sie den Raum, der zu Ihrer Reise passt.', stayAction: 'Alle Zimmer ansehen',
+  room: 'Zimmer & Suiten', event: 'Raum für Begegnungen', eventText: 'Der Saal am Schlossberg bietet Platz für Feiern und geschäftliche Anlässe – mit Terrasse und moderner Ausstattung.', eventAction: 'Feiern & Tagen', welcome: 'Gut ankommen. Gern bleiben.', welcomeText: 'Frühstücksbuffet, Lounge, Dachterrasse und ein Team, das Greiz gern mit Ihnen teilt.', hotel: 'Das Hotel kennenlernen'
+} : {
+  title: 'Greiz. Close by.',
+  intro: 'In the heart of the historic town, at the foot of the Upper Castle: Schlossberghotel is a welcoming base for exploring, unwinding and spending time together.',
+  action: 'Explore the rooms', secondary: 'Plan an event', kicker: 'Schlossberghotel · Marienstr. 1–5',
+  stat: '31 rooms', stat2: '5 suites', stat3: '1 accessible room',
+  locate: 'The town is right outside', locateText: 'Historic lanes, the castle park and the White Elster are close by. The wooded hills of the Vogtland begin just beyond town.', explore: 'Explore Greiz',
+  stayTitle: 'A room for your own rhythm', stayText: 'From thoughtful and contemporary to spacious and distinctive, find a place that suits your stay.', stayAction: 'View all rooms',
+  room: 'Rooms & suites', event: 'A place to come together', eventText: 'Saal am Schlossberg welcomes celebrations and business events, with a terrace and modern equipment.', eventAction: 'Events & meetings', welcome: 'Arrive well. Feel at ease.', welcomeText: 'A breakfast buffet, lounge, rooftop terrace and a team happy to share a little of Greiz with you.', hotel: 'Meet the hotel'
+};
+---
+<SiteLayout lang={lang} current="home" title={de ? 'Hotel in Greiz' : 'Hotel in Greiz'} description={content.intro} heroImage={heroGallery[0].image}>
+  <section class="hero home-hero">
+    <div class="hero-visual"><img id="home-hero-image" data-image-reveal src={heroGallery[0].image} alt={de ? heroGallery[0].altDe : heroGallery[0].altEn} fetchpriority="high" /><div class="hero-caption"><span id="home-hero-caption">{de ? heroGallery[0].captionDe : heroGallery[0].captionEn}</span></div></div>
+    <div class="hero-gallery" role="group" aria-label={de ? 'Motive ansehen' : 'Browse images'}>{heroGallery.map((item, index) => <button class="hero-gallery-button" type="button" data-hero-image={item.image} data-hero-alt={de ? item.altDe : item.altEn} data-hero-caption={de ? item.captionDe : item.captionEn} aria-label={de ? item.labelDe : item.labelEn} aria-pressed={index === 0 ? 'true' : 'false'}><img src={item.image} alt="" loading="lazy" /></button>)}</div>
+    <div class="hero-route" aria-hidden="true"><span>{de ? 'Stadt entdecken' : 'Explore the town'}<br />→</span></div>
+    <div class="hero-copy"><p class="eyebrow">{content.kicker}</p><h1 class="hero-heading"><span class="hero-word">{de ? 'Greiz.' : 'Greiz.'}</span><br /><span class="hero-word">{de ? 'Ganz nah.' : 'Close by.'}</span></h1><p class="hero-lede">{content.intro}</p><div class="hero-actions"><a class="button button-light" href={de ? '/de/zimmer/' : '/en/rooms/'}>{content.action}<span aria-hidden="true">↗</span></a><a class="text-link light-link" href={de ? '/de/events/' : '/en/events/'}>{content.secondary}<span aria-hidden="true">↗</span></a></div><div class="hero-proof"><span>{content.stat}</span><span>{content.stat2}</span><span>{content.stat3}</span></div></div>
+  </section>
+  <section class="home-booking-strip" aria-label={de ? 'Direkt buchen' : 'Book direct'}><div><span>{de ? 'DIREKTE BUCHUNG' : 'DIRECT BOOKING'}</span><strong>{de ? 'Verfügbarkeit und Preise direkt prüfen.' : 'Check availability and rates directly.'}</strong><p>{de ? 'Termine, Zimmer und Buchungsbedingungen zeigt Ihnen das offizielle Buchungssystem.' : 'The official booking system shows current dates, rooms and booking conditions.'}</p></div><a class="button button-dark" href="https://buchung.schlossberghotel-greiz.de/onlinebuchung/views/onlinebuchung.php?cds_id=1" target="_blank" rel="noreferrer">{de ? 'Zimmer buchen' : 'Book your stay'}<span aria-hidden="true">↗</span></a></section>
+  <section class="waypoint-strip" aria-label={de ? 'Auf einen Blick' : 'At a glance'}><div><span class="waypoint-dot" aria-hidden="true"></span><strong>{de ? 'Mitten in Greiz' : 'In central Greiz'}</strong></div><div><span class="waypoint-dot" aria-hidden="true"></span><strong>{content.stat}</strong><span>{content.stat2}</span></div><div><span class="waypoint-dot" aria-hidden="true"></span><strong>{de ? '225 m²' : '225 m²'}</strong><span>{de ? 'Saal am Schlossberg' : 'Saal am Schlossberg'}</span></div></section>
+  <section class="home-location section-pad"><div class="location-copy"><p class="eyebrow">{de ? 'Greiz entdecken' : 'Explore Greiz'}</p><h2>{content.locate}</h2><p>{content.locateText}</p><a class="text-link" href={de ? '/de/greiz/' : '/en/greiz/'}>{content.explore}<span aria-hidden="true">↗</span></a></div></section>
+  <section class="rooms-band"><div class="rooms-band-copy"><p class="eyebrow">{de ? 'Zimmer & Suiten' : 'Rooms & suites'}</p><h2>{content.stayTitle}</h2><p>{content.stayText}</p><a class="button button-outline" href={de ? '/de/zimmer/' : '/en/rooms/'}>{content.stayAction}<span aria-hidden="true">↗</span></a></div><div class="room-index"><span>{de ? 'DESIGNZIMMER' : 'DESIGN ROOMS'}</span><span>{de ? 'KLASSIKZIMMER' : 'CLASSIC ROOMS'}</span><span>{de ? 'SUITEN' : 'SUITES'}</span><span>{de ? 'BARRIEREFREI' : 'ACCESSIBLE ROOM'}</span><a href={de ? '/de/zimmer/' : '/en/rooms/'} aria-label={content.stayAction}>↗</a></div></section>
+  <section class="event-split"><div class="event-copy"><p class="eyebrow">{de ? 'Feiern & Tagen' : 'Events & meetings'}</p><h2>{content.event}</h2><p>{content.eventText}</p><a class="text-link" href={de ? '/de/events/' : '/en/events/'}>{content.eventAction}<span aria-hidden="true">↗</span></a><div class="event-meta"><span>225 m²</span><span>{de ? 'Barrierefrei' : 'Accessible'}</span><span>65 m² {de ? 'Terrasse' : 'terrace'}</span></div></div></section>
+  <section class="home-welcome section-pad"><div><p class="eyebrow">{de ? 'Zu Gast in Greiz' : 'Stay in Greiz'}</p><h2>{content.welcome}</h2><p>{content.welcomeText}</p><a class="text-link" href={de ? '/de/hotel/' : '/en/hotel/'}>{content.hotel}<span aria-hidden="true">↗</span></a></div></section>
+</SiteLayout>
+
+<script>
+  const heroImage = document.querySelector<HTMLImageElement>('#home-hero-image');
+  const heroCaption = document.querySelector<HTMLElement>('#home-hero-caption');
+  const heroButtons = [...document.querySelectorAll<HTMLButtonElement>('.hero-gallery-button')];
+
+  heroButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!heroImage || !heroCaption) return;
+      heroImage.src = button.dataset.heroImage ?? heroImage.src;
+      heroImage.alt = button.dataset.heroAlt ?? '';
+      heroCaption.textContent = button.dataset.heroCaption ?? '';
+      heroButtons.forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === button)));
+    });
+  });
+</script>

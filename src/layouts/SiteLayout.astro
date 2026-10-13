@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+const { lang = 'de', current = 'home', title, description = '', heroImage, pairedUrl, canonicalPath, children } = Astro.props;
+const nav = lang === 'de'
+  ? [{ key: 'hotel', label: 'Das Hotel', href: '/de/hotel/' }, { key: 'rooms', label: 'Zimmer', href: '/de/zimmer/' }, { key: 'events', label: 'Feiern & Tagen', href: '/de/events/' }, { key: 'greiz', label: 'Greiz entdecken', href: '/de/greiz/' }, { key: 'contact', label: 'Anreise & Kontakt', href: '/de/kontakt/' }]
+  : [{ key: 'hotel', label: 'The hotel', href: '/en/hotel/' }, { key: 'rooms', label: 'Rooms', href: '/en/rooms/' }, { key: 'events', label: 'Events', href: '/en/events/' }, { key: 'greiz', label: 'Explore Greiz', href: '/en/greiz/' }, { key: 'contact', label: 'Arrival & contact', href: '/en/contact/' }];
+const book = 'https://buchung.schlossberghotel-greiz.de/onlinebuchung/views/onlinebuchung.php?cds_id=1';
+const bookingLabel = lang === 'de' ? 'Buchen' : 'Book your stay';
+const paired = { home: lang === 'de' ? '/en/' : '/de/', hotel: lang === 'de' ? '/en/hotel/' : '/de/hotel/', rooms: lang === 'de' ? '/en/rooms/' : '/de/zimmer/', events: lang === 'de' ? '/en/events/' : '/de/events/', greiz: lang === 'de' ? '/en/greiz/' : '/de/greiz/', contact: lang === 'de' ? '/en/contact/' : '/de/kontakt/', arrival: lang === 'de' ? '/en/arrival/' : '/de/anfahrt/', guide: lang === 'de' ? '/en/guest-guide/' : '/de/gaestemappe/' };
+const languageHref = pairedUrl ?? paired[current] ?? (lang === 'de' ? '/en/' : '/de/');
+const canonicalUrl = canonicalPath ?? Astro.url.pathname;
+const siteBase = new URL(import.meta.env.BASE_URL, Astro.site);
+const siteUrl = (path: string) => {
+  const basePath = import.meta.env.BASE_URL;
+  const relativePath = path.startsWith(basePath) ? path.slice(basePath.length) : path.replace(/^\/+/, '');
+  return new URL(relativePath, siteBase).toString();
+};
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#102a24" />
+    <title>{title} · Schlossberghotel Greiz</title>
+    <link rel="canonical" href={siteUrl(canonicalUrl)} />
+    <link rel="alternate" hreflang="de" href={siteUrl(lang === 'de' ? canonicalUrl : languageHref)} />
+    <link rel="alternate" hreflang="en" href={siteUrl(lang === 'en' ? canonicalUrl : languageHref)} />
+    <link rel="alternate" hreflang="x-default" href={siteUrl('/de/')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Schlossberghotel Greiz" />
+    <meta property="og:title" content={`${title} · Schlossberghotel Greiz`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl(canonicalUrl)} />
+    <meta property="og:image" content={siteUrl(heroImage ?? '/images/schlossberghotel-terrace.jpg')} />
+    {heroImage && <link rel="preload" as="image" href={heroImage} />}
+    <link rel="icon" type="image/png" href="/brand/logo.png" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{lang === 'de' ? 'Zum Inhalt springen' : 'Skip to content'}</a>
+    <div class="topline"><span>{lang === 'de' ? 'Im Herzen von Greiz · Vogtland' : 'In the heart of Greiz · Vogtland'}</span><a href="tel:+493661622123">+49 (0) 36 61/6 22-123</a></div>
+    <header class="site-header">
+      <a class="brand" href={lang === 'de' ? '/de/' : '/en/'} aria-label="Schlossberghotel Greiz — Startseite">
+        <img src="/brand/logo.png" width="220" height="82" alt="Schlossberghotel Greiz" />
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label={lang === 'de' ? 'Menü öffnen' : 'Open menu'} data-open-label={lang === 'de' ? 'Menü öffnen' : 'Open menu'} data-close-label={lang === 'de' ? 'Menü schließen' : 'Close menu'}><span class="menu-icon" aria-hidden="true"></span></button>
+      <nav class="primary-nav" id="primary-nav" aria-label={lang === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
+        {nav.map((item) => <a class:list={[item.key === current && 'active']} href={item.href}>{item.label}</a>)}
+        <a class="language" href={languageHref} lang={lang === 'de' ? 'en' : 'de'}>{lang === 'de' ? 'EN' : 'DE'}</a>
+        <a class="button button-dark nav-book" href={book} target="_blank" rel="noreferrer">{bookingLabel}<span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand"><img src="/brand/logo.png" alt="" width="60" height="60" /><div><strong>Schlossberghotel Greiz</strong><span>{lang === 'de' ? 'Ein Haus mitten in der Stadt.' : 'A hotel in the heart of town.'}</span></div></div>
+        <p>{lang === 'de' ? 'Ein guter Ausgangspunkt für Greiz, das Vogtland und Begegnungen, die in Erinnerung bleiben.' : 'A welcoming base for Greiz, the Vogtland and time together.'}</p>
+        <a class="footer-book" href={book} target="_blank" rel="noreferrer">{lang === 'de' ? 'Verfügbarkeit prüfen' : 'Check availability'} <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-columns">
+        <div><span class="footer-label">{lang === 'de' ? 'Besuchen Sie uns' : 'Find us'}</span><p>Marienstr. 1–5<br />07973 Greiz, Deutschland</p><a href="tel:+493661622123">+49 (0) 36 61/6 22-123</a><a href="mailto:info@schlossberghotel-greiz.de">info@schlossberghotel-greiz.de</a><a href="tel:+493661622166">Fax +49 (0) 36 61/6 22-166</a></div>
+        <div><span class="footer-label">{lang === 'de' ? 'Entdecken' : 'Discover'}</span><a href={lang === 'de' ? '/de/hotel/' : '/en/hotel/'}>{lang === 'de' ? 'Das Hotel' : 'The hotel'}</a><a href={lang === 'de' ? '/de/zimmer/' : '/en/rooms/'}>{lang === 'de' ? 'Zimmer & Suiten' : 'Rooms & suites'}</a><a href={lang === 'de' ? '/de/events/' : '/en/events/'}>{lang === 'de' ? 'Feiern & Tagen' : 'Events'}</a><a href={lang === 'de' ? '/de/events/saal-am-schlossberg/' : '/en/events/saal-am-schlossberg/'}>{lang === 'de' ? 'Saal am Schlossberg' : 'Event hall'}</a><a href={lang === 'de' ? '/de/greiz/' : '/en/greiz/'}>{lang === 'de' ? 'Greiz entdecken' : 'Explore Greiz'}</a><a href={lang === 'de' ? '/de/greiz/wandern/' : '/en/greiz/walking/'}>{lang === 'de' ? 'Wandern' : 'Walking'}</a><a href={lang === 'de' ? '/de/greiz/radfahren/' : '/en/greiz/cycling/'}>{lang === 'de' ? 'Radfahren' : 'Cycling'}</a><a href={lang === 'de' ? '/de/greiz/wasserwandern/' : '/en/greiz/paddling/'}>{lang === 'de' ? 'Wasserwandern' : 'Paddling'}</a></div>
+        <div><span class="footer-label">{lang === 'de' ? 'Gut zu wissen' : 'Useful information'}</span><p>{lang === 'de' ? 'Check-in ab 15:00 Uhr<br />Check-out bis 11:00 Uhr' : 'Check-in from 3:00 pm<br />Check-out by 11:00 am'}</p><a href={lang === 'de' ? '/de/anfahrt/' : '/en/arrival/'}>{lang === 'de' ? 'Anfahrt' : 'Getting here'}</a><a href={lang === 'de' ? '/de/kontakt/' : '/en/contact/'}>{lang === 'de' ? 'Kontakt' : 'Contact'}</a><a href={lang === 'de' ? '/de/gaestemappe/auf-einen-blick-von-a-z/' : '/en/guest-guide/guest-information/'}>{lang === 'de' ? 'Gästeinformation A–Z' : 'Guest information A–Z'}</a><a href={lang === 'de' ? '/de/gaestemappe/kulinarisches/' : '/en/guest-guide/nearby-dining/'}>{lang === 'de' ? 'Restaurants in Greiz' : 'Dining in Greiz'}</a><a href="https://buchung.schlossberghotel-greiz.de/onlinebuchung/views/onlinebuchung.php?cds_id=1" target="_blank" rel="noreferrer">{lang === 'de' ? 'Buchung & Preise' : 'Booking & rates'}</a><a href="https://www.schlossberghotel-greiz.de/impressum/" target="_blank" rel="noreferrer">Impressum</a><a href="https://www.schlossberghotel-greiz.de/datenschutz/" target="_blank" rel="noreferrer">Datenschutz / Privacy</a><a href="https://www.schlossberghotel-greiz.de/agb/" target="_blank" rel="noreferrer">AGB / Terms</a></div>
+      </div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} Schlossberghotel Greiz</span><span>{lang === 'de' ? 'Originalfotos: Schlossberghotel Greiz · KI-Visualisierungen sind gekennzeichnet' : 'Original photos: Schlossberghotel Greiz · AI visualizations are labeled'}</span><a href={lang === 'de' ? '/en/' : '/de/'}>{lang === 'de' ? 'English' : 'Deutsch'}</a></div>
+    </footer>
+    <script is:inline>
+      const menuButton = document.querySelector('.menu-toggle');
+      const navigation = document.querySelector('.primary-nav');
+      menuButton?.addEventListener('click', () => {
+        const open = menuButton.getAttribute('aria-expanded') === 'true';
+        menuButton.setAttribute('aria-expanded', String(!open));
+        menuButton.setAttribute('aria-label', !open ? menuButton.dataset.closeLabel : menuButton.dataset.openLabel);
+        navigation?.classList.toggle('open', !open);
+      });
+      navigation?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        menuButton?.setAttribute('aria-expanded', 'false');
+        menuButton?.setAttribute('aria-label', menuButton.dataset.openLabel);
+        navigation.classList.remove('open');
+      }));
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape' || menuButton?.getAttribute('aria-expanded') !== 'true') return;
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', menuButton.dataset.openLabel);
+        navigation?.classList.remove('open');
+        menuButton.focus();
+      });
+    </script>
+  </body>
+</html>

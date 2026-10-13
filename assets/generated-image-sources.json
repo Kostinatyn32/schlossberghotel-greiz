@@ -1,0 +1,45 @@
+[
+  {
+    "file": "public/images/greiz-sunset-view-vertical.webp",
+    "sourceFile": "exec-2a174321-b212-4d20-824a-fd3a4d89654d.png",
+    "sourceType": "AI-generated atmospheric artwork",
+    "createdWith": "OpenAI image generation",
+    "disclosure": "An artistic, AI-generated impression inspired by Greiz; not documentary photography and not a verified view."
+  },
+  {
+    "file": "public/images/greiz-sunset-view-wide.webp",
+    "sourceFile": "exec-dab24716-0b21-48c8-aa56-74fbe170b010.png",
+    "sourceType": "AI-generated atmospheric artwork",
+    "createdWith": "OpenAI image generation",
+    "disclosure": "An artistic, AI-generated impression inspired by Greiz; not documentary photography and not a verified view."
+  },
+  {
+    "file": "public/images/greiz-panorama-linework.webp",
+    "sourceFile": "exec-e64f96e1-3bac-44ca-a77e-35bfaf65c8dd.png",
+    "sourceType": "AI-generated panorama illustration",
+    "createdWith": "OpenAI image generation",
+    "disclosure": "Illustrative panorama; not documentary photography and not to scale."
+  },
+  {
+    "file": "public/images/schlossberghotel-room-atmosphere-concept.webp",
+    "sourceFile": "exec-bb4681b2-e045-41c1-850e-9110cedc8b48.png",
+    "sourceType": "AI-generated interior concept",
+    "createdWith": "OpenAI image generation",
+    "disclosure": "Atmosphere concept only; does not depict an actual Schlossberghotel room or its exact amenities."
+  },
+  {
+    "file": "public/images/greiz-editorial-map-artwork.webp",
+    "sourceFile": "exec-d15e7086-a40c-44dc-ac2c-6da8594e7d0a.png",
+    "sourceType": "AI-generated decorative map illustration",
+    "createdWith": "OpenAI image generation",
+    "disclosure": "Decorative illustration only. Embedded labels are AI-generated and unverified; the artwork is not for wayfinding or factual reference."
+  },
+  {
+    "file": "public/images/schlossberghotel-entrance-visualization.webp",
+    "sourceFile": "exec-4dd05711-856f-488c-93cc-e796e2a67fc7.png",
+    "sourceType": "AI-generated photorealistic visualization based on the hotel's original entrance photograph",
+    "createdWith": "OpenAI image generation",
+    "referenceFile": "public/images/schlossberghotel-entrance.jpg",
+    "disclosure": "Photorealistic visualization based on the official entrance photo; not a documentary photograph."
+  }
+]

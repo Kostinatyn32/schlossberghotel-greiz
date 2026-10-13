@@ -1,0 +1,74 @@
+[
+  {
+    "file": "public/images/schlossberghotel-terrace.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Banner-Slider/berg-schlosshotel-greiz-terrasse.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/",
+    "subject": "Hotel rooftop terrace"
+  },
+  {
+    "file": "public/images/schlossberghotel-breakfast.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Banner-Slider/berg-schlosshotel-greiz-fruestuecksraum.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/",
+    "subject": "Hotel breakfast room"
+  },
+  {
+    "file": "public/images/schlossberghotel-designzimmer.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Bilder-Zimmer/Designzimmer/Schlossberghotel-Greiz-Design-Designzimmer-1.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/zimmer/designzimmer/",
+    "subject": "Design room"
+  },
+  {
+    "file": "public/images/schlossberghotel-klassikzimmer.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Bilder-Zimmer/Klassikzimmer/Schlossberghotel-Greiz-Klassikzimmer-1.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/zimmer/klassikzimmer/",
+    "subject": "Classic room"
+  },
+  {
+    "file": "public/images/schlossberghotel-design-suite.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Bilder-Zimmer/Design-Suite/Schlossberghotel-Greiz-Design-Suite-3.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/zimmer/design-suite/",
+    "subject": "Design suite"
+  },
+  {
+    "file": "public/images/schlossberghotel-klassik-suite.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Bilder-Zimmer/Klassik-Suite/Schlossberghotel-Greiz-Klassik-Suite-1.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/zimmer/klassik-suite/",
+    "subject": "Classic suite"
+  },
+  {
+    "file": "public/images/schlossberghotel-exklusiv-suite.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Bilder-Zimmer/Exklusiv-Suite/Schlossberghotel-Greiz-Exklusiv-Suite-1.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/zimmer/exklusiv-suite/",
+    "subject": "Exclusive suite"
+  },
+  {
+    "file": "public/images/saal-am-schlossberg-banquet.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Feier2.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/tagungevent/saal-am-schlossberg/",
+    "subject": "Event hall set for a banquet"
+  },
+  {
+    "file": "public/images/saal-am-schlossberg-lounge.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Eventbereich/greiz-saal-3.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/tagungevent/saal-am-schlossberg/",
+    "subject": "Event hall lounge"
+  },
+  {
+    "file": "public/images/greiz-park-manoir.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Wandern/Wanderung-Greizer-Park/Wanderung-Greizer-Park-13.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/umgebung/wandern/",
+    "subject": "Historic house in Fürstlich Greizer Park"
+  },
+  {
+    "file": "public/images/greiz-park-path.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Wandern/Wanderung-Greizer-Park/Wanderung-Greizer-Park-15.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/umgebung/wandern/",
+    "subject": "Entrance path to Greizer Park"
+  },
+  {
+    "file": "public/images/schlossberghotel-entrance.jpg",
+    "source": "https://www.schlossberghotel-greiz.de/assets/Uploads/Wandern/Wanderung-Greizer-Park/Wanderung-Greizer-Park-18.jpg",
+    "sourcePage": "https://www.schlossberghotel-greiz.de/umgebung/wandern/",
+    "subject": "Hotel entrance"
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T19:11:53Z",
+  "title": "Design System: Schlossberghotel Greiz",
+  "extensions": {
+    "colorMeta": {
+      "deep-evergreen": { "role": "primary", "displayName": "Deep Evergreen", "canonical": "#102a24", "tonalRamp": ["#010e0b", "#0d2721", "#26413a", "#415c55", "#5d7871", "#7a968e", "#a8c5bd", "#d8f7ee"] },
+      "evergreen": { "role": "primary", "displayName": "Evergreen", "canonical": "#16372f", "tonalRamp": ["#010f0b", "#062821", "#214239", "#3c5d54", "#587a70", "#75988e", "#a3c7bc", "#d3f8ed"] },
+      "evergreen-soft": { "role": "primary", "displayName": "Soft Evergreen", "canonical": "#284a40", "tonalRamp": ["#010f0a", "#042820", "#204238", "#3b5d53", "#577a6f", "#74988d", "#a2c7bb", "#d2f9ec"] },
+      "warm-chalk": { "role": "neutral", "displayName": "Warm Chalk", "canonical": "#f3f0e6", "tonalRamp": ["#0d0b05", "#24221a", "#3d3a33", "#58554d", "#747169", "#928f86", "#c1beb4", "#f1eee4"] },
+      "mineral-paper": { "role": "neutral", "displayName": "Mineral Paper", "canonical": "#e8e4d8", "tonalRamp": ["#0e0b04", "#242119", "#3e3a31", "#59554b", "#757167", "#938f84", "#c1beb2", "#f2eee2"] },
+      "white-paper": { "role": "neutral", "displayName": "White Paper", "canonical": "#fbfaf6", "tonalRamp": ["#0c0b09", "#22221f", "#3b3a37", "#565552", "#72716e", "#908f8b", "#bfbeba", "#efeeea"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#182522", "tonalRamp": ["#030e0b", "#182522", "#303e3b", "#4a5955", "#667572", "#84938f", "#b2c2be", "#e2f3ef"] },
+      "muted-ink": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#535b53", "tonalRamp": ["#070d07", "#1d241d", "#353d35", "#505850", "#6c746c", "#899289", "#b7c1b7", "#e8f2e8"] },
+      "wayfinding-brass": { "role": "secondary", "displayName": "Wayfinding Brass", "canonical": "#cbb987", "tonalRamp": ["#0f0b01", "#2b2001", "#483803", "#645424", "#817040", "#9f8e5d", "#cfbd8a", "#fdeec2"] },
+      "fine-rule": { "role": "neutral", "displayName": "Fine Rule", "canonical": "#cbc9bd", "tonalRamp": ["#0d0b04", "#232219", "#3c3b31", "#57564b", "#747267", "#919084", "#c0beb2", "#f1efe3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Manrope Display", "purpose": "Large home and route page headings." },
+      "body": { "displayName": "Manrope Body", "purpose": "Practical hotel, room, event and arrival information." },
+      "label": { "displayName": "Manrope Wayfinding Label", "purpose": "Compact uppercase navigation, captions and section labels." },
+      "editorial": { "displayName": "Georgia Editorial Serif", "purpose": "Select place-led emphasis and the footer identity." }
+    },
+    "shadows": [
+      { "name": "mobile-navigation", "value": "0 16px 24px rgb(14 31 25 / .13)", "purpose": "Separate the open mobile navigation from the page." }
+    ],
+    "motion": [
+      { "name": "guide-arrive", "value": "650ms cubic-bezier(.23, 1, .32, 1)", "purpose": "Brief upward word reveal on hero headings; omitted when reduced motion is requested." },
+      { "name": "interface-transition", "value": "160ms ease-out", "purpose": "Button and navigation hover and pressed feedback." }
+    ],
+    "breakpoints": [
+      { "name": "navigation-collapse", "value": "780px" },
+      { "name": "compact-desktop", "value": "1060px" },
+      { "name": "small-phone", "value": "390px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Booking Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Evergreen booking action on paper surfaces.",
+      "html": "<a class=\"ds-button-primary\" href=\"#\">BOOK A ROOM <span aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-button-primary { min-height: 48px; padding: 13px 19px; display: inline-flex; align-items: center; justify-content: center; gap: 22px; border: 1px solid transparent; color: var(--cream); background: var(--green); font: 700 9px/1 Manrope, Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; transition: transform 160ms ease-out, color 160ms ease-out, background-color 160ms ease-out; } .ds-button-primary:hover { background: var(--deep); transform: translateY(-2px); } .ds-button-primary:focus-visible { outline: 2px solid #957848; outline-offset: 4px; } .ds-button-primary:active { transform: scale(.97); } .ds-button-primary span { font-size: 14px; font-weight: 400; }"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Warm chalk action against an evergreen hero or footer.",
+      "html": "<a class=\"ds-button-light\" href=\"#\">EXPLORE ROOMS <span aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-button-light { min-height: 48px; padding: 13px 19px; display: inline-flex; align-items: center; justify-content: center; gap: 22px; border: 1px solid transparent; color: var(--deep); background: var(--cream); font: 700 9px/1 Manrope, Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; transition: transform 160ms ease-out, color 160ms ease-out, background-color 160ms ease-out; } .ds-button-light:hover { background: #e2dcc7; transform: translateY(-2px); } .ds-button-light:focus-visible { outline: 2px solid #957848; outline-offset: 4px; } .ds-button-light:active { transform: scale(.97); } .ds-button-light span { font-size: 14px; font-weight: 400; }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "description": "Uppercase route links with a restrained brass active state.",
+      "html": "<nav class=\"ds-navigation\" aria-label=\"Main navigation\"><a href=\"#\">THE HOTEL</a><a class=\"ds-active\" href=\"#\" aria-current=\"page\">ROOMS</a><a href=\"#\">EVENTS</a></nav>",
+      "css": ".ds-navigation { display: flex; align-items: center; gap: 22px; } .ds-navigation a { padding: 13px 0; color: #27352f; font: 600 9px/1 Manrope, Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; } .ds-navigation a:hover, .ds-navigation .ds-active { color: #967b46; } .ds-navigation a:focus-visible { outline: 2px solid #957848; outline-offset: 4px; }"
+    },
+    {
+      "name": "Text Wayfinding Link",
+      "kind": "custom",
+      "description": "Open editorial link with a fine underline and directional arrow.",
+      "html": "<a class=\"ds-text-link\" href=\"#\">EXPLORE GREIZ <span aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-text-link { width: fit-content; display: inline-flex; align-items: center; gap: 12px; padding-bottom: 6px; border-bottom: 1px solid #928b73; color: inherit; font: 700 9px/1.5 Manrope, Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; transition: gap 180ms ease-out, color 180ms ease-out; } .ds-text-link:hover { gap: 17px; color: #8b7142; } .ds-text-link:focus-visible { outline: 2px solid #957848; outline-offset: 4px; } .ds-text-link span { font-size: 14px; font-weight: 400; }"
+    },
+    {
+      "name": "Room Booking Row",
+      "kind": "custom",
+      "description": "Open room listing row with the booking arrow named for its room type.",
+      "html": "<article class=\"ds-room-row\"><span class=\"ds-room-number\">01</span><h2>Design Room</h2><p>24–26 m² · TV, Wi-Fi, desk and shower.</p><a href=\"#\" aria-label=\"Check availability: Design Room\">↗</a></article>",
+      "css": ".ds-room-row { min-height: 104px; padding: 20px 0; display: grid; grid-template-columns: 52px 1.05fr 1.6fr 44px; gap: 24px; align-items: center; border-top: 1px solid var(--line); color: var(--ink); } .ds-room-row h2 { margin: 0; font: 500 20px/1.25 Manrope, Arial, sans-serif; letter-spacing: -.035em; } .ds-room-row p { margin: 0; color: var(--muted); font: 400 11px/1.7 Manrope, Arial, sans-serif; } .ds-room-row > a { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid #a5a599; color: var(--green); } .ds-room-row > a:hover { color: var(--cream); background: var(--green); } .ds-room-row > a:focus-visible { outline: 2px solid #957848; outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Stadtwegweiser",
+    "overview": "The selected third visual direction treats Schlossberghotel as a welcoming base within Greiz. A dark evergreen city map gives the place a strong first impression; the warm paper header and open reading sections make practical hotel information easy to find. The map is an interpretive illustration, clearly labeled as not to scale. It must not imply that the hotel itself is a castle or a protected landmark.\n\nThe same guide grammar runs through home, hotel, rooms, events, town and contact pages in German and English. A compact hotel logo area, clear route names, direct booking actions, precise facts and thin rules do most of the work. Generated interior imagery is disclosed as illustrative until approved hotel photography is available.",
+    "keyCharacteristics": ["evergreen map field", "warm chalk", "direct wayfinding labels", "asymmetrical editorial layouts", "square forms", "sourced facts only"],
+    "rules": [],
+    "dos": [
+      "Do keep booking pointed at the existing booking engine and event enquiries addressed to the published hotel email.",
+      "Do preserve the supplied original logo; all additional imagery must be new and its illustrative status clear.",
+      "Do provide visible keyboard focus, touch targets of at least 44px, and a reduced-motion path.",
+      "Do use only verified room, event, contact and arrival facts."
+    ],
+    "donts": [
+      "Don't imply that generated imagery depicts actual hotel rooms or event spaces.",
+      "Don't claim exact walking distances, event guest capacities, room prices, guest reviews, or unverified architectural history.",
+      "Don't mix the superseded guestbook direction into this selected city-guide world."
+    ]
+  }
+}
