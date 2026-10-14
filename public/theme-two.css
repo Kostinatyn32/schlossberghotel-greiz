@@ -1,0 +1,244 @@
+/* Edition 02 — a warmer, contemporary Greiz hotel journal. */
+body.edition-two {
+  --brand: #bd6449;
+  --brand-strong: #8d4835;
+  --brand-deep: #4b302a;
+  --brand-soft: #f1dfd5;
+  --ink: #2c2925;
+  --green: #934d39;
+  --deep: #3b2c28;
+  --green-soft: #b26147;
+  --cream: #f6f1e9;
+  --paper: #e9dfd4;
+  --white: #fcfaf6;
+  --muted: #6e655f;
+  --gold: #c88c5e;
+  --accent-strong: #96503a;
+  --line: #d8c9bc;
+  --serif: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+body.edition-two ::selection { color: var(--cream); background: var(--brand-strong); }
+body.edition-two :focus-visible { outline-color: var(--brand-strong); }
+body.edition-two .topline { color: var(--cream); background: var(--deep); }
+body.edition-two .site-header { min-height: 76px; background: var(--cream); border-color: var(--line); }
+body.edition-two .brand img { filter: saturate(.76); }
+body.edition-two .primary-nav { gap: clamp(12px, 1.5vw, 23px); }
+body.edition-two .primary-nav > a:not(.button) { font-size: 9px; letter-spacing: .075em; }
+body.edition-two .primary-nav > a:hover,
+body.edition-two .primary-nav > a.active { color: var(--brand-strong); }
+body.edition-two .primary-nav > .button,
+body.edition-two .button { border-radius: 999px; }
+body.edition-two .button { padding-inline: 23px; letter-spacing: .09em; }
+body.edition-two .button-dark { color: var(--white); background: var(--brand-strong); }
+body.edition-two .button-dark:hover { background: var(--deep); }
+body.edition-two .button-light { color: var(--deep); background: var(--white); }
+body.edition-two .button-light:hover { background: var(--brand-soft); }
+body.edition-two .button-outline { color: var(--brand-strong); border-color: var(--brand-strong); }
+body.edition-two .button-outline:hover { color: var(--white); background: var(--brand-strong); }
+body.edition-two .text-link { border-color: var(--brand); }
+body.edition-two .text-link:hover { color: var(--brand-strong); }
+body.edition-two .eyebrow { color: var(--brand-strong); letter-spacing: .14em; }
+
+body.edition-two .edition-switch {
+  min-height: 34px;
+  padding: 7px 5.2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  color: var(--cream);
+  background: var(--brand-strong);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+body.edition-two .edition-switch a { color: var(--cream); text-underline-offset: 4px; }
+body.edition-two .edition-switch a:hover { text-decoration: underline; }
+
+/* The opening reads like a window onto the town: the hotel story stays clear
+   on the left while a large real Greiz panorama carries the right side. */
+body.edition-two .hero.home-hero {
+  min-height: min(760px, calc(100svh - 110px));
+  color: var(--ink);
+  background: var(--cream);
+}
+body.edition-two .hero-visual { width: 56%; }
+body.edition-two .hero-visual > img {
+  object-position: 70% 43%;
+  opacity: 1;
+}
+body.edition-two .hero-visual::after {
+  background:
+    linear-gradient(90deg, var(--cream) 0%, rgb(246 241 233 / .94) 8%, rgb(246 241 233 / .5) 26%, transparent 62%),
+    linear-gradient(0deg, rgb(59 44 40 / .22), transparent 32%);
+}
+body.edition-two .hero-copy {
+  width: 55%;
+  padding: 76px 0 70px 8.4%;
+}
+body.edition-two .hero-copy > .eyebrow { color: var(--brand-strong); }
+body.edition-two .hero-copy h1,
+body.edition-two .page-hero h1 {
+  color: var(--deep);
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -.045em;
+}
+body.edition-two .hero-copy h1 { max-width: 680px; font-size: clamp(58px, 7.4vw, 104px); line-height: .94; }
+body.edition-two .hero-lede { color: #514944; }
+body.edition-two .hero-proof { border-color: #bda99a; }
+body.edition-two .hero-proof span { color: #514944; }
+body.edition-two .hero-gallery-button { border-color: rgb(252 250 246 / .85); background: rgb(59 44 40 / .72); }
+body.edition-two .hero-gallery-button[aria-pressed='true'] { border-color: var(--brand); }
+body.edition-two .hero-route { color: var(--cream); }
+body.edition-two .hero-route::before { background: var(--brand); }
+body.edition-two .hero-caption { color: var(--cream); }
+body.edition-two .hero-caption span { color: #f1c39a; }
+
+body.edition-two .home-booking-strip { background: var(--white); border-color: var(--line); }
+body.edition-two .home-booking-strip > div > span { color: var(--brand-strong); }
+body.edition-two .waypoint-strip { color: var(--deep); background: var(--paper); }
+body.edition-two .waypoint-dot { border-color: var(--brand-strong); }
+body.edition-two .home-location,
+body.edition-two .event-split,
+body.edition-two .home-welcome { background: var(--cream); }
+body.edition-two .location-copy h2,
+body.edition-two .rooms-band h2,
+body.edition-two .event-copy h2,
+body.edition-two .home-welcome h2,
+body.edition-two .page-intro h2,
+body.edition-two .page-cta h2,
+body.edition-two .town-map h2 { color: var(--deep); font-family: var(--serif); font-weight: 500; letter-spacing: -.03em; }
+body.edition-two .location-copy p:not(.eyebrow),
+body.edition-two .rooms-band-copy > p:not(.eyebrow),
+body.edition-two .event-copy > p:not(.eyebrow),
+body.edition-two .home-welcome > div:first-child > p:not(.eyebrow) { color: var(--muted); }
+body.edition-two .rooms-band { background: var(--paper); }
+body.edition-two .room-index { border-color: #c7b3a5; }
+body.edition-two .room-index > span { border-color: #c7b3a5; }
+body.edition-two .room-index > span::after { color: var(--brand-strong); }
+body.edition-two .room-index a { border-radius: 50%; background: var(--brand-strong); }
+body.edition-two .room-index a:hover { background: var(--deep); }
+body.edition-two .event-art { border-radius: 0; background: var(--brand-strong); }
+body.edition-two .event-copy { max-width: 1200px; }
+body.edition-two .event-meta { border-color: var(--line); }
+body.edition-two .welcome-book { border-radius: 22px; background: var(--deep); }
+body.edition-two .welcome-book::after { border-color: rgb(200 140 94 / .66); box-shadow: 0 0 0 16px var(--deep), 0 0 0 17px rgb(200 140 94 / .38), 0 0 0 42px var(--deep), 0 0 0 43px rgb(200 140 94 / .23); }
+
+/* Interior routes use pale reading surfaces, warm photo framing and a clear
+   terracotta action, while retaining the original German/English content. */
+body.edition-two .page-hero { color: var(--ink); background: var(--cream); }
+body.edition-two .page-hero-copy { background: var(--cream); }
+body.edition-two .breadcrumb { color: var(--muted); }
+body.edition-two .breadcrumb a:hover { color: var(--brand-strong); }
+body.edition-two .page-lede { color: #514944; }
+body.edition-two .page-hero-meta { border-color: #bda99a; color: var(--muted); }
+body.edition-two .page-hero-art img { opacity: .96; }
+body.edition-two .page-hero-art::after { background: linear-gradient(0deg, rgb(59 44 40 / .55), transparent 40%); }
+body.edition-two .page-hero-art > span { color: var(--cream); }
+body.edition-two .page-hero-art--events,
+body.edition-two .page-hero-art--contact { background: var(--brand-strong); }
+body.edition-two .arrival-plate { border-color: var(--gold); }
+body.edition-two .arrival-plate > span { color: #f1c39a; }
+body.edition-two .room-size-panel { background: linear-gradient(135deg, var(--brand-strong), var(--deep)); }
+body.edition-two .page-intro,
+body.edition-two .detail-grid,
+body.edition-two .subpage-facts,
+body.edition-two .photo-grid,
+body.edition-two .room-list,
+body.edition-two .contact-grid,
+body.edition-two .town-map { background: var(--cream); }
+body.edition-two .intro-body,
+body.edition-two .detail-grid article p,
+body.edition-two .event-fact-grid article p,
+body.edition-two .contact-grid article p,
+body.edition-two .subpage-facts article p { color: #514944; }
+body.edition-two .detail-grid article,
+body.edition-two .room-row,
+body.edition-two .subpage-facts article,
+body.edition-two .contact-grid article { border-color: var(--line); }
+body.edition-two .room-row-photo,
+body.edition-two .photo-grid figure,
+body.edition-two .town-map-photo { overflow: hidden; border-radius: 15px; background: var(--paper); }
+body.edition-two .room-row-photo img,
+body.edition-two .photo-grid img,
+body.edition-two .town-map-photo img { transition: transform 280ms cubic-bezier(.23, 1, .32, 1); }
+body.edition-two .room-row-photo:hover img,
+body.edition-two .photo-grid figure:hover img,
+body.edition-two .town-map-photo:hover img { transform: scale(1.025); }
+body.edition-two .room-row-photo figcaption { border-radius: 4px; background: rgb(59 44 40 / .88); }
+body.edition-two .room-row-content > a { border-color: var(--brand-strong); border-radius: 999px; color: var(--brand-strong); }
+body.edition-two .room-row-content > a:hover { color: var(--cream); background: var(--brand-strong); }
+body.edition-two .stats-band { background: var(--paper); }
+body.edition-two .stats-band div,
+body.edition-two .event-fact-large,
+body.edition-two .event-terrace { border-color: var(--line); }
+body.edition-two .stats-band strong,
+body.edition-two .event-fact-large span,
+body.edition-two .event-terrace span { color: var(--brand-strong); }
+body.edition-two .map-point { border-radius: 999px; background: var(--brand-strong); }
+body.edition-two .map-point b { color: #f1c39a; }
+body.edition-two .page-cta { color: var(--cream); background: var(--brand-strong); }
+body.edition-two .page-cta h2 { color: var(--cream); }
+body.edition-two .page-cta .eyebrow { color: #f1c39a; }
+body.edition-two .page-cta .button-light { color: var(--deep); }
+body.edition-two .not-found { background: var(--deep); }
+body.edition-two .fact-index,
+body.edition-two .subpage-related a span { color: var(--brand-strong); }
+body.edition-two .subpage-related > div,
+body.edition-two .subpage-related a { border-color: var(--line); }
+
+body.edition-two .site-footer { color: #f4e9df; background: var(--deep); }
+body.edition-two .footer-label { color: #e4ad85; }
+body.edition-two .footer-top,
+body.edition-two .footer-bottom { border-color: #74574d; }
+body.edition-two .footer-brand img { border-radius: 50%; }
+body.edition-two .footer-columns p,
+body.edition-two .footer-columns a { color: #e7d9cf; }
+body.edition-two .footer-columns a:hover,
+body.edition-two .footer-bottom a:hover { color: #f1c39a; }
+
+@media (max-width: 1060px) {
+  body.edition-two .hero-copy { width: 58%; }
+  body.edition-two .hero-visual { width: 60%; }
+}
+
+@media (max-width: 780px) {
+  body.edition-two .edition-switch { padding-inline: 7%; font-size: 7px; }
+  body.edition-two .site-header { background: var(--cream); }
+  body.edition-two .primary-nav { background: var(--cream); border-color: var(--line); }
+  body.edition-two .hero.home-hero { background: var(--cream); }
+  body.edition-two .hero-visual { width: 100%; height: auto; overflow: hidden; }
+  body.edition-two .hero-visual > img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 84% 40%; }
+  body.edition-two .hero-visual::after { display: block; background: linear-gradient(0deg, rgb(59 44 40 / .20), transparent 35%); }
+  body.edition-two .hero-copy { width: 100%; padding: 35px 7% 48px; }
+  body.edition-two .hero-copy h1 { max-width: 640px; font-size: clamp(54px, 13vw, 82px); }
+  body.edition-two .hero-lede { max-width: 48ch; color: #514944; }
+  body.edition-two .hero-proof { border-color: #bda99a; }
+  body.edition-two .hero-proof span { color: #514944; }
+  body.edition-two .hero-caption { background: var(--deep); }
+  body.edition-two .hero-gallery { top: 13px; right: 7%; }
+  body.edition-two .hero-gallery-button { border-radius: 50%; }
+  body.edition-two .hero-gallery-button img { border-radius: 50%; }
+  body.edition-two .home-booking-strip { background: var(--white); }
+  body.edition-two .home-location,
+  body.edition-two .rooms-band,
+  body.edition-two .event-split,
+  body.edition-two .home-welcome { gap: 28px; }
+  body.edition-two .room-row-photo,
+  body.edition-two .photo-grid figure,
+  body.edition-two .town-map-photo { border-radius: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.edition-two .room-row-photo img,
+  body.edition-two .photo-grid img,
+  body.edition-two .town-map-photo img { transition: none; }
+  body.edition-two .room-row-photo:hover img,
+  body.edition-two .photo-grid figure:hover img,
+  body.edition-two .town-map-photo:hover img { transform: none; }
+}
